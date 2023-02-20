@@ -1,18 +1,17 @@
 import React from 'react';
+import useGif from '../hooks/useGif';
 
-function Random() {
-
-  const handleClick = () => {
-    alert('clicked');
-  }
+const Random = (): JSX.Element => {
+  const { gif, fetchGif } = useGif();
 
   return (
-    <div className='container'>
+    <div className="container">
       <h1>Random Gif</h1>
-      <img src={`https://source.unsplash.com/random`} alt="random" />
-      <button onClick={handleClick}> Click for now </button>
+      <img src={gif} alt="Random Gif" />
+      <button type="button" onClick={() => fetchGif()}>Click For New</button>
     </div>
   );
-}
+};
 
 export default Random;
+

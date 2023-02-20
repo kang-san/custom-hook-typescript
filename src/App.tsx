@@ -5,10 +5,12 @@ import Tag from "./components/Tag";
 
 function App() {
   return (
-    <div className="App">
-      <h1>cutsom hooks !~~~ </h1>
-        <Random />
-        <Tag />
+    <div>
+      <h1> typescript custom hook </h1>
+        <div className='main-container'>
+          <Random />
+          <Tag />
+        </div>
     </div>
   );
 }

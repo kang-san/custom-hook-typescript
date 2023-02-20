@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import useGif from '../hooks/useGif';
 
-function Tag() {
+const Tag = (): JSX.Element => {
+  const [tag, setTag] = useState<string>('dog');
+  const { gif, fetchGif } = useGif(tag);
 
   const handleClick = () => {
-    alert('clicked');
-  }
+    fetchGif(tag);
+  };
 
   return (
-    <div className='container'>
-      <h1>Tag</h1>
-      <img src={`https://source.unsplash.com/random`} alt="random" />
-      <input type="text" onChange={e => e.target.value}/>
-      <button onClick={handleClick}> Click for now </button>
+    <div className="container">
+      <h1>Tag Gif</h1>
+      <img src={gif} alt="Random Gif" />
+      <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} />
+      <button type="button" onClick={handleClick}>Click For New</button>
     </div>
   );
-}
+};
 
 export default Tag;
